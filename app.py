@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routes.files import files
 from document.docs import tags_metadata
 
 app = FastAPI(title = 'API para el examen, análisis del documento',
@@ -15,3 +16,5 @@ app = FastAPI(title = 'API para el examen, análisis del documento',
         'url': 'https://opensource.org/licenses/MIT'
     },
     openapi_tags= tags_metadata)
+
+    app.include_router(files)
